@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>去水印下载工具</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 密码验证界面 -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <h2>访问验证</h2>
+            <p>请输入访问密码</p>
+            <input type="password" id="passwordInput" placeholder="请输入密码">
+            <button id="submitPassword">确认</button>
+            <div id="passwordError" class="error-message"></div>
+        </div>
+    </div>
+
+    <!-- 主功能界面 -->
+    <div id="mainContent" class="hidden">
+        <header>
+            <h1>🎬 去水印下载工具</h1>
+            <p>支持抖音、快手等平台视频去水印下载</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <h3>📋 粘贴分享链接</h3>
+                <textarea id="linkInput" placeholder="请粘贴包含视频链接的分享文本，例如：\n4.89 03/24 cNJ:/ K@W.md 随意"搭讪"韩国美女，印度富人区的三哥能有多自信？ # 外国人 # 歪果仁真会玩 # 印度 # 旅行 # 看世界  https://v.douyin.com/ZOqdo9qsYuY/  复制此链接，打开Dou音搜索，直接观看视频！"></textarea>
+                <button id="parseBtn" class="parse-btn">🔍 开始解析</button>
+                <div id="extractedLink" class="extracted-link"></div>
+            </div>
+
+            <div id="loadingSection" class="loading hidden">
+                <div class="spinner"></div>
+                <p>正在解析中，请稍候...</p>
+            </div>
+
+            <div id="resultSection" class="result-section hidden">
+                <h3>📹 解析结果</h3>
+                
+                <div class="video-info">
+                    <div class="info-item">
+                        <label>标题：</label>
+                        <span id="videoTitle"></span>
+                    </div>
+                    
+                    <div class="preview-section">
+                        <div class="cover-preview">
+                            <h4>封面预览</h4>
+                            <img id="coverImage" src="" alt="视频封面" class="hidden">
+                            <div id="coverError" class="error-message hidden">封面加载失败</div>
+                            <button id="downloadCover" class="download-btn hidden">📷 下载封面</button>
+                        </div>
+                        
+                        <div class="video-preview">
+                            <h4>视频信息</h4>
+                            <div id="videoInfo">
+                                <p>类型：<span id="videoType"></span></p>
+                                <p>链接：<span id="videoUrl"></span></p>
+                            </div>
+                            <button id="downloadVideo" class="download-btn hidden">🎬 下载视频</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="errorSection" class="error-section hidden">
+                <h3>❌ 解析失败</h3>
+                <p id="errorMessage"></p>
+                <button id="retryBtn" class="retry-btn">🔄 重试</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2024 去水印下载工具 - 仅供学习交流使用</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
